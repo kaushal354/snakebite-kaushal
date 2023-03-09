@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+  <head>
+    <title>Snake Bite Prediction System</title>
+    <link rel="icon" href="{% static 'css/cobra.png'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{%static 'css/about/cobra.css'%}">
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">Snake Bite Prediction System</h1>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="result">
+        <!-- Result section to be populated with prediction results -->
+            <img id="snake-image" src = "{%static 'css/FirstAid/firstaid.jpg'%}">
+            <h2 style="text-align: center; font-size: 32; color: #424141;">Python First Aid</h2>
+            <p style="color: #424141;font-size: 30; ">If you or someone around you has been bitten by a Python, so it is not much more venomous but you
+                can still follow some instructions:
+            </p>
+            <ol style="font-size: 25; color: #252525;">
+                <li><p><b style="color: rgb(30, 111, 192);">Stay calm and still:</b> Do not move around too much or try to run as this will increase blood flow.</p></li>
+                <li><p><b style="color: rgb(30, 111, 192);">Remove tight clothing or jewelry:</b> This will allow for proper blood flow and prevent constriction in the affected area.</p></li>
+                <li><p><b style="color: rgb(30, 111, 192);">Wash the wound with soap and water:</b> Gently clean the bite area with soap and water to remove any dirt or debris.</p></li>
+                <li><p><b style="color: rgb(30, 111, 192);">Rush for hospitals:</b> Call the vehical and other supporting things.</p></li>
+                <li><p><b style="color: rgb(30, 111, 192);">Apply a cold compress:</b> Use a cold compress, ice pack or cool, wet cloth to reduce swelling and pain.</p></li>
+                <li><p><b style="color: rgb(30, 111, 192);">Drink plenty of water:</b> Staying hydrated will help your body calm.</p></li>
+                <li><p><b style="color: rgb(30, 111, 192);">Seek medical attention:</b> Call emergency services or transport the person to the nearest hospital or clinic for further treatment.</p></li>
+              </ol>
+            <p style="font-size:30">It is important to note that these first aid measures do not replace medical treatment and should be seen as temporary measures until proper medical help can be obtained.</p>
+
+
+
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2023 Snake Bite Prediction System</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{%load static %}
+<html>
+  <head>
+    <title>Snake Bite Prediction System</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{%static 'css/main.css'%}">
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">Snake Bite Prediction System</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form action="/home/predict" method="post" enctype="multipart/form-data">
+        <label for="file-input">Select a file:</label>
+        <input type="file" id="file-input" name="file">
+        <button type="submit">Predict</button>
+      </form>
+      <div id="result">
+        <!-- Result section to be populated with prediction results -->
+            <img id="snake-image" src = "{%static 'css/cobra.png'%}">
+            <h2 id="prediction">Update snake name</h2>
+            <p id="prediction-info">
+                <h3><b>Common name: <span style="color:red;">{{cm}}</span></b></h3>
+                <h3><b>Scientific name:<span style="color:red;">{{sc}}</span></b></h3>
+                <h3><b>Type:<span style="color:red;"> {{type}}</span></b></h3>
+                <h3><b>Anti Venome:<span style="color:red;"> {{av}}</span></b></h3>
+                <h3><b>timing takes for fatality:<span style="color:red;"> {{time}}</span></b></h3>
+            </p>
+            <div id="buttons">
+
+                <button id="about-snake" style="background-color: #252525;border-radius:5px;"><a style="text-decoration: none;color: white;" href="/home/about">About Snake</a></button>
+                <button id="first-aid" style="background-color: #252525;border-radius:5px;"><a style="text-decoration: none;color: white;" href="/home/firstaid">First Aid</a></button>
+                <button id="nearest-hospitals" style="background-color: #252525;border-radius:5px;"><a  style="text-decoration: none;color: white;" href="/home/hospital">Nearest Hospitals</a></button>
+                <button id="help" style="background-color: #252525;border-radius:5px;"><a style="text-decoration: none;color: white;" href="/home/professionaltreatment">Professional treatment</a></button>
+
+            </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2023 Snake Bite Prediction System</p>
+    </footer>
+  </body>
+</html>
