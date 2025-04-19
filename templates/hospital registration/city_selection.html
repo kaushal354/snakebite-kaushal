@@ -1,0 +1,65 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snake Bite Prediction System</title>
+    <link rel="stylesheet" href="{%static  'css/main.css'%}">
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">Snake Bite Prediction System</h1>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="home/hospregis">Hospital Registration</a></li>
+          <li><a href="home/me">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <h1>Hospitals in your area</h1>
+        <form action="home/city" method="post" style="display: flex; flex-direction: column; max-width: 500px; margin: auto;" enctype="multipart/form-data" >
+        <label style="display: flex; align-items: center; margin-bottom: 10px width=30px height=10px;">
+            <input type="text" name="city" placeholder="ENTER YOUR CITY NAME">
+        </label>
+        <input type="submit" value="Submit" style="margin-top: 20px; background-color: #252525; border-radius: 5px; height: fit-content; font-size: 25px; color: wheat; ">
+      </form>
+
+      <div id="result">
+        <!-- Result section to be populated with prediction results -->
+            <img id="snake-image" style="  height: 100px;width: 100px;" src = "{%static 'hospRegis/hospital.jpg'%}">
+            <h3 style="text-align: center; font-size:35px;"><marquee>These hospitals are present in your area</marquee></h3>
+            <table  border="5px" style="font-size:25px;border:5px solid lightgray ;" cellpadding="5px">
+            <tr>
+              <th>Hospital Name</th>
+              <th>City</th>
+              <th>Hospital Address</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Cobra</th>
+              <th>Python</th>
+              <th>Russel</th>
+            </tr>
+            {% for row in hosp %}
+            <tr>
+              <td>{{ row.hospital_name }}</td>
+              <td>{{ row.city }}</td>
+              <td>{{ row.hospital_address }}</td>
+              <td>{{ row.phone_number }}</td>
+              <td>{{ row.email }}</td>
+              <td>{{ row.cobra_antidote }}</td>
+              <td>{{ row.python_antidote}}</td>
+              <td>{{ row.russel_antidote}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Snake Bite Prediction System</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,139 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snake Bite Prediction System</title>
+    <link rel="stylesheet" href="{%static  'css/main.css'%}">
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">Snake Bite Prediction System</h1>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="home/hospregis">Hospital Registration</a></li>
+          <li><a href="home/me">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <div style="padding-left: 100px; padding-right: 100px; padding-top: 30px; color: #323232;">
+            <p>
+                <h3>The project idea is based on the team’s research:</h3>
+                Where we analyze that according to <a href="https://www.who.int/news/item/10-07-2020-study-estimates-more-than-one-million-indians-died-from-snakebite-envenoming-over-past-two-decades">WHO</a>, India is among the countries most dramatically affected by snakebite and accounts for almost
+                half the total number of annual deaths in the world. Authors of the article entitled <a href="https://pubmed.ncbi.nlm.nih.gov/32633232/#:~:text=We%20estimate%20that%20India%20had,home%20in%20the%20rural%20areas">‘Trends in snakebite mortality in India from 2000 to 2019
+                in a nationally representative mortality study’</a> analyzed 2,833 snakebite deaths from 611,483 verbal autopsies from an earlier study and
+                conducted a systematic literature review from 2000-2019 covering 87,590 snake bites.
+
+                The <a href="https://pubmed.ncbi.nlm.nih.gov/32633232/#:~:text=We%20estimate%20that%20India%20had,home%20in%20the%20rural%20areas">authors</a> estimated that India had 1.2 million snakebite deaths (representing an average of 58,000 per year) from 2000 to 2019 with nearly
+                half of the victims aged 30-69 and over a quarter being children under 15. People living in densely populated low-altitude agricultural areas
+                in the states of Bihar, Jharkhand, Madhya Pradesh, Odisha, Uttar Pradesh, Andhra Pradesh (which includes Telangana, a recently defined state),
+                Rajasthan and Gujarat, suffered 70% of deaths during the period 2001-2014, particularly during the rainy season when encounters between snakes
+                and humans are more frequent at home and outdoors.
+
+                <a href="https://en.wikipedia.org/wiki/Russell%27s_viper">Russell’s viper</a> (Daboia russelii), <a href="https://en.wikipedia.org/wiki/Indian_cobra">cobras</a> (Naja Naja) and <a href="https://en.wikipedia.org/wiki/Pythonidae">python</a> (Pythonidae) are among the most important biting snake species in India, yet other often unidentified species also represent a threat
+                The reason is that many people died, because of the improper antidot or lack of time to find the snake’s name. because a doctor first asks the name of the snake and then uses the proper antidote for that particular snake.
+
+
+            </p>
+            <p>
+                <h3>Introduction:</h3>
+                Everyone must have seen a snake at some time in their life. You must have also heard about the incident of death due to a snake bite.
+                Every year from 81000 to 1,38,000 people die due to snake bites. After a snake bite, it is identified so that its antidote can be detected.
+                If this work is done by AI, then this process will be done quickly. So far there is no software that can detect snakes by teeth marks.
+                According to the research done by us, the bite structure of each snake is different. According to snakes, their domestic and professional
+                remedies are different. Our model will tell his home and professional treatment along with his name from the teeth marks.
+            </p>
+            <p>
+                <h3>Method & Strategies:</h3>
+                Data Gathering from the <a href="https://snakehelpline.com">https://snakehelpline.com</a>. For data preprocessing we first convert it to
+                grayscale then we generate 3000 images using data augmentation in this we generate data of 3 snakes we use deep learning algorithms to
+                train the Cobra, Python and Russel viper models did CNN algorithm is considered better for images that's why we used CNN to train the model.
+                After having the model trained, we deployed it through Django.We have used HTML CSS in front-end technology and inside back-end technology
+                we have used Django which is a framework inside Python language.Apart from this, in the back end, we have used the Python language,
+                inside which some algorithms of machine learning have been used, such as the CNN algorithm. Also at the time of preprocessing, we used Python language
+            </p>
+        </div>
+        <h1 style="color: #323232;">Meet our Team</h1>
+        <img id="snake-image" src = "{%static 'aboutus/team.png'%}">
+      <div id="result">
+        <!-- Result section to be populated with prediction results -->
+        <h2>Contact Us!</h2>
+                  <p>Respected users, Feel free to get in touch with us for any questions or feedback!</p>
+
+            <form action="/submit" style="display: flex; flex-direction: column; max-width: 1040px; margin: auto;">
+                <div style=" padding-left: 10px; padding-top: 10px; padding-right:10px; padding-bottom: 10px;">
+                    <label style="display: flex; align-items: center; margin-bottom: 10px; color: white; background-color: #323232; border-radius: 10px; border-color: white;">
+                        <span style="flex-basis: 200px; font-family: Arial, Helvetica, sans-serif; font-size: 30px;">Kaushal Prasad</span>
+                        <img id="kaushal" src="{%static 'aboutus/one.png'%}" style="height: 200px; width: 200px;">
+                        <ul>
+                            <li><i class="fas fa-envelope"></i>Email<a href="kaushal.pd123456789@gmail.com"><img src="{%static 'aboutus/mail.png'%}"></a></li>
+                            <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/kaushal_prasad_10/"><img src="{%static 'aboutus/insta.png'%}"></a></li>
+                            <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/kaushal-prasad-a8b740113/"><img src="{%static 'aboutus/link.png'%}"></a></li>
+                            <li><i class="fas fa-facebook"></i> Facebook: <a href="https://www.facebook.com/premraj.0123"><img src="{%static 'aboutus/face.png'%}"></a></li>
+                          </ul>
+                      </label>
+                </div>
+                <hr style="color:#323232">
+
+                <div style=" padding-left: 10px; padding-top: 10px; padding-right:10px; padding-bottom: 10px;">
+                <label style="display: flex; align-items: center; margin-bottom: 10px; color: white; background-color: #323232; border-radius: 10px; border-color: white;">
+                    <span style="flex-basis: 200px; font-family: Arial, Helvetica, sans-serif; font-size: 30px;">Komal Singh Markam </span>
+                    <img id="vijay" src="{%static 'aboutus/two.png'%}" style="height: 200px; width: 200px;">
+                    <ul>
+                        <li><i class="fas fa-envelope"></i>Email<a href="2203031240625@paruluniversity.ac.in"><img src="{%static 'aboutus/mail.png'%}"></a></li>
+                        <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/komal_singh__markam/?utm_source=ig_web_button_share_sheet"><img src="{%static 'aboutus/insta.png'%}"></a></li>
+                        <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/Komal-Singh-Markam/"><img src="{%static 'aboutus/link.png'%}"></a></li>
+                        <li><i class="fas fa-facebook"></i> Facebook: <a href="#"><img src="{%static 'aboutus/face.png'%}"></a></li>
+                      </ul>
+                  </label>
+
+                </div>
+                <hr style="color:#323232">
+
+                <div style=" padding-left: 10px; padding-top: 10px; padding-right:10px; padding-bottom: 10px;">
+                  <label style="display: flex; align-items: center; margin-bottom: 10px; color: white; background-color: #323232; border-radius: 10px; border-color: white;">
+                    <span style="flex-basis: 200px; font-family: Arial, Helvetica, sans-serif; font-size: 30px;">Aarti Gupta</span>
+                    <img id="priyanshu" src="{%static 'aboutus/three.png'%}" style="height: 200px; width: 200px;">
+                    <ul>
+                        <li><i class="fas fa-envelope"></i>Email<a href="aartigupta1317@gmail.com"><img src="{%static 'aboutus/mail.png'%}"></a></li>
+                        <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/_aarrttiii/"><img src="{%static 'aboutus/insta.png'%}"></a></li>
+                        <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/aarti-gupta-0a1837262/"><img src="{%static 'aboutus/link.png'%}"></a></li>
+                        <li><i class="fas fa-facebook"></i> Facebook: <a href="#"><img src="{%static 'aboutus/face.png'%}"></a></li>
+                      </ul>
+                  </label>
+                </div>
+                <hr style="color:#323232">
+
+                <div style=" padding-left: 10px; padding-top: 10px; padding-right:10px; padding-bottom: 10px;">
+                  <label style="display: flex; align-items: center; margin-bottom: 10px; color: white; background-color: #323232; border-radius: 10px; border-color: white;">
+                    <span style="flex-basis: 200px; font-family: Arial, Helvetica, sans-serif; font-size: 30px;">Keshav Maloo</span>
+                    <img id="hemanshu" src="{%static 'aboutus/four.png'%}" style="height: 200px; width: 200px;">
+                    <ul>
+                        <li><i class="fas fa-envelope"></i>Email<a href="malookeshav18@gmail.com"><img src="{%static 'aboutus/mail.png'%}"></a></li>
+                        <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/keshavmaloo_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="{%static 'aboutus/insta.png'%}"></a></li>
+                        <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/keshav-maloo-6b0b73341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="{%static 'aboutus/link.png'%}"></a></li>
+                        <li><i class="fas fa-facebook"></i> Facebook: <a href=":https://www.facebook.com/keshav.maloo.56/"><img src="{%static 'aboutus/face.png'%}"></a></li>
+                      </ul>
+                  </label>
+                  <div>
+                    <form>
+                        <br>
+                        <label>feedback Please!</label>
+                            <textarea rows="10" cols="105" placeholder="PLEASE GIVE US MOTIVATIONS AND FEEDBACK"></textarea>
+
+                    </form>
+                  </div>
+                </div>
+
+              </form>
+
+      </div>
+    </main>
+    <footer>
+      <p>&copy;  2025 Snake Bite Prediction System</p>
+    </footer>
+
+  </body>
+</html>

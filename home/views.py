@@ -5,12 +5,13 @@ import os
 import glob
 import re
 import keras
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-model_path=r"B:\B.TECH\web development\Projects\snakebite\model\project_gray_scale.h5"
+
+model_path=r"D:\Projects\projectsnake\snakebite\snakebite\model\project_gray_scale.h5"
 
 model=keras.models.load_model(model_path)
-
+import sqlite3
 
 import numpy as np
 import keras.utils as image
@@ -24,11 +25,70 @@ import keras.utils as image
 # Flask utils
 from django.core.files.storage import FileSystemStorage
 predication=0
+from .models import Hospital
+def homepage1(request):
+    global predication
+    predication="-1"
+    return render(request,"home/snake1.html")
+def aboutus(request):
+    return render(request,'aboutus/about_us.html')
+@csrf_exempt
+def hospital_result(request):
+        city=request.POST['city']
+        hospitals = Hospital.objects.filter(city=city)
+        return render(request,'hospital registration/city_selection.html',{'hosp':hospitals})
+@csrf_exempt
+def nearhospi(request):
+    return render(request,'hospital registration/city_selection.html')
+@csrf_exempt
+def hospital_from(request):
+        hospital_name = request.POST['hospital_name']
+        city=request.POST['city']
+        hospital_address = request.POST['hospital_address']
+        phone_number = request.POST['phone_number']
+        email = request.POST['email']
+        antidotes = request.POST.getlist('antidote[]')
+        cobra = True if 'cobra' in antidotes else False
+        python = True if 'python' in antidotes else False
+        russel = True if 'russel' in antidotes else False
+
+        hospital = Hospital(
+            hospital_name=hospital_name,
+            city=city,
+            hospital_address=hospital_address,
+            phone_number=phone_number,
+            email=email,
+            cobra_antidote=cobra,
+            python_antidote=python,
+            russel_antidote=russel
+        )
+
+        hospital.save()
+
+        #import sqlite3
+        #c = sqlite3.connect('hospital.db')
+        #cr = c.cursor()
+        #cr.execute("INSERT INTO hospital VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+          # (hospital_name,city, hospital_address, phone_number, email, cobra, python, russel))
+        #c.commit()
+        #c.close()
+        return render(request,"hospital registration/success.html")
+
+
+
+
+@csrf_exempt
+def hospregis(request):
+    return render(request,"hospital registration/hospital_registration.html")
+@csrf_exempt
+def img(request):
+    return render(request,"camera/c.html")
+@csrf_exempt
 def homepage(request):
     global predication
     predication="-1"
     return render(request, "home/snake.html")
-    
+@csrf_exempt
 def pt(request):
     global predication
     if(predication=="0"):
@@ -39,7 +99,7 @@ def pt(request):
         return render(request,"Professional Treatment/russel.html")
     a="Please First predict your snake"
     return render(request,"Error/invalidAcess.html",{"message":a})
-
+@csrf_exempt
 def firstaid(request):
     global predication
     if(predication=="0"):
@@ -89,7 +149,7 @@ def predict(request):
             Type = "Venomous"
             Anti_Venome = "polyvalent antivenom"
             timing_takes_for_fatality = "30 minutes"
-            return render(request, "home/snake.html", {'cm':commom_name ,'sc':scientific_name,'type':Type,'av':Anti_Venome,'time':timing_takes_for_fatality})
+            return render(request, "home/snake1.html", {'cm':commom_name ,'sc':scientific_name,'type':Type,'av':Anti_Venome,'time':timing_takes_for_fatality})
         elif preds == 1:
             predication="1"
             commom_name = "Python"
@@ -97,7 +157,7 @@ def predict(request):
             Type = "Non Venomous"
             Anti_Venome = "Not needed"
             timing_takes_for_fatality = "No death due to bite"
-            return render(request, "home/snake.html", {'cm':commom_name ,'sc':scientific_name,'type':Type,'av':Anti_Venome,'time':timing_takes_for_fatality})
+            return render(request, "home/snake1.html", {'cm':commom_name ,'sc':scientific_name,'type':Type,'av':Anti_Venome,'time':timing_takes_for_fatality})
         else:
             predication="2"
             commom_name = "Russel Viper"
@@ -105,13 +165,14 @@ def predict(request):
             Type = "Venomous"
             Anti_Venome = "Daboia antivenom"
             timing_takes_for_fatality = "1-14 days"
-            return render(request, "home/snake.html", {'cm':commom_name ,'sc':scientific_name,'type':Type,'av':Anti_Venome,'time':timing_takes_for_fatality})
+            return render(request, "home/snake1.html", {'cm':commom_name ,'sc':scientific_name,'type':Type,'av':Anti_Venome,'time':timing_takes_for_fatality})
         # Process your result for human
         # pred_class = preds.argmax(axis=-1)            # Simple argmax
         #pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
         #result = str(pred_class[0][0][1])               # Convert to string
         #return result
     #return None
+@csrf_exempt
 def pred(pred, model):
     test_image = image.load_img(pred, target_size=(150,150))
     test_image = image.img_to_array(test_image)/255
@@ -122,7 +183,7 @@ def pred(pred, model):
     #print(result,"--->>",predict)
 
     return predict
-
+@csrf_exempt
 def convert(file_path):
     from keras_preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
     datagen = ImageDataGenerator(
@@ -153,7 +214,7 @@ def convert(file_path):
 
     path = os.path.join('uploads', os.listdir('uploads')[0])
     return path
-
+@csrf_exempt
 def remove_file_name(path):
     """
     Removes the filename from the end of a path and returns the directory.

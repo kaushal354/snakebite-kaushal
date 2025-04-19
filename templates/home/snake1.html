@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{%load static %}
+<html>
+  <head>
+    <title>Snake Bite Prediction System</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{%static 'cssHome/style_new.css'%}">
+  </head>
+  <body>
+    <header>
+      <nav>
+
+        <ul>
+          <img src="{%static 'cssHome/snake.jpg'%}" alt="" id="snakeimg">
+          <li><a href="/home">Home</a></li>
+          <li><a href="home/hospregis">Hospital Registration</a></li>
+          <li><a href="home/me">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+      <h1 class="header-title">Snake Bite Prediction System</h1>
+
+    </header>
+    <main>
+      <form action="/home/predict" method="post" enctype="multipart/form-data">
+        <label for="file-input">Select a file:</label>
+        <input type="file" id="file-input" name="file">
+        <button type="submit">Predict</button>
+      </form>
+        <button type="submit"> <a style="text-decoration: none;color: black;" href="home/img">Click snap</a></button>
+      <div id="result">
+        <!-- Result section to be populated with prediction results -->
+            <img id="snake-image" src = "{%static 'css/cobra.png'%}">
+            <h2 id="prediction">Update snake name</h2>
+            <p id="prediction-info">
+                <h3><b>Common name: <span style="color:red;">{{cm}}</span></b></h3>
+                <h3><b>Scientific name:<span style="color:red;">{{sc}}</span></b></h3>
+                <h3><b>Type:<span style="color:red;"> {{type}}</span></b></h3>
+                <h3><b>Anti Venome:<span style="color:red;"> {{av}}</span></b></h3>
+                <h3><b>timing takes for fatality:<span style="color:red;"> {{time}}</span></b></h3>
+            </p>
+            <div id="buttons1">
+
+                <button class="b1" id="about-snake"><a  href="/home/about">About Snake</a></button>
+                <button class="b1" id="first-aid"><a href="/home/firstaid">First Aid</a></button>
+                <button class="b1" id="nearest-hospital"><a href="/home/hospital">Nearest Hospitals</a></button>
+                <button class="b1" id="help"><a href="/home/professionaltreatment">Professional treatment</a></button>
+
+            </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Snake Bite Prediction System</p>
+    </footer>
+  </body>
+</html>

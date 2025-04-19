@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take a Picture and Save to File</title>
+</head>
+<body>
+    <div>
+        <video id="video" width="400" height="300"></video>
+    </div>
+    <div>
+        <button id="snap" style="background-color: #252525;border-radius:5px;color: white;">Snap Photo</button>
+    </div>
+    <div>
+        <canvas id="canvas" width="400" height="300"></canvas>
+    </div>
+    <script>
+        var video = document.getElementById('video');
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var snapButton = document.getElementById('snap');
+
+        // Get permission to access the camera
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(function(stream) {
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch(function(err) {
+                console.log("An error occurred: " + err);
+            });
+
+        // Take a picture and save to file
+        snapButton.addEventListener('click', function() {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            var imageData = canvas.toDataURL('image/jpeg');
+
+            // Create a link element to download the image
+            var link = document.createElement('a');
+            link.download = 'image.jpg';
+            link.href = imageData;
+            document.body.appendChild(link);
+
+            // Simulate a click on the link to download the image
+            link.click();
+
+            // Remove the link from the DOM
+            document.body.removeChild(link);
+        });
+    </script>
+    <div>
+      <button id="back" style="background-color: #252525;border-radius:5px;"><a style="text-decoration: none;color: white;" href="/home">Home</button>
+      </div>
+</body>
+</html>

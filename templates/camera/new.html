@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take a Picture and Save to File</title>
+</head>
+<body>
+    <div>
+        <video id="video" width="400" height="300"></video>
+    </div>
+    <div>
+        <button id="snap">Snap Photo</button>
+    </div>
+    <div>
+        <canvas id="canvas" width="400" height="300"></canvas>
+    </div>
+    <form action="r" method="post">
+        <input id="image-data" name="image-data" type="hidden" value="">
+        <button type="submit">Save Photo</button>
+    </form>
+
+    <script>
+        var video = document.getElementById('video');
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var snapButton = document.getElementById('snap');
+        var imageDataInput = document.getElementById('image-data');
+
+        // Get permission to access the camera
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(function(stream) {
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch(function(err) {
+                console.log("An error occurred: " + err);
+            });
+
+        // Take a picture and show it on the canvas
+        snapButton.addEventListener('click', function() {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            var imageData = canvas.toDataURL('image/png');
+            imageDataInput.value = imageData;
+        });
+    </script>
+</body>
+</html>

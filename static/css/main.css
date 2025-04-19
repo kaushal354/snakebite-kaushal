@@ -5,7 +5,7 @@ header {
     color: #fff;
     text-align: center;
   }
-  
+
   header h1 {
     margin: 0;
     font-size: 36px;
@@ -25,11 +25,11 @@ header {
     padding: 0;
     overflow: hidden;
   }
-  
+
   nav li {
     float: right;
   }
-  
+
   nav li a {
     display: block;
     color: white;
@@ -37,12 +37,12 @@ header {
     padding: 10px 10px;
     text-decoration: none;
   }
-  
+
   nav li a:hover {
     background-color: #555;
   }
-  
-  
+
+
   body{
     background-color: #dfdddd;
   }
@@ -52,13 +52,13 @@ header {
     flex-direction: column;
     align-items: center;
   }
-  
+
   form button[type="submit"],
   form input[type="file"] {
     display: block;
     margin: 10px;
   }
-  
+
   button[type="submit"] {
     background-color: #444;
     color: #fff;
@@ -68,11 +68,11 @@ header {
     font-size: 18px;
     cursor: pointer;
   }
-  
+
   button[type="submit"]:hover {
     background-color: #555;
   }
-  
+
   input[type="file"] {
     padding: 10px;
     border: 1px solid #ccc;
@@ -83,23 +83,23 @@ header {
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
   }
-  
+
   input[type="file"]:hover {
     border-color: #aaa;
   }
- 
-  
+
+
   form {
     margin: 20px;
   }
-  
+
   label {
     font-family: Arial, Helvetica, sans-serif;
     display: block;
     margin-bottom: 10px;
     font-size: 18px;
   }
-  
+
   input[type="file"] {
     display: block;
     background-color: #333;
@@ -119,7 +119,7 @@ header {
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
   }
-  
+
   /* Style for the result section */
   #result {
     background-color: #ececec;
@@ -130,24 +130,24 @@ header {
     overflow: auto;
     width: fit-content;
   }
-  
+
   #result img {
     display: block;
     border-radius: 50%;
     margin: 0 auto;
   }
-  
+
   #result h2 {
     margin-top: 0;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   #result p {
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   /* Style for the footer section */
   footer {
     font-family: Arial, Helvetica, sans-serif;
@@ -156,46 +156,45 @@ header {
     text-align: center;
     padding: 10px;
   }
-  
+
   /* Media queries for responsive design */
   @media only screen and (max-width: 768px) {
     header h1 {
       font-size: 28px;
       font-family: Arial, Helvetica, sans-serif;
     }
-  
+
     form {
       margin: 10px;
     }
-  
+
     label {
       font-size: 16px;
       font-family: Arial, Helvetica, sans-serif;
     }
-  
+
     button[type="submit"] {
       font-size: 16px;
       font-family: Arial, Helvetica, sans-serif;
       padding: 8px 16px;
     }
-  
+
     #result {
       margin: 10px;
       padding: 10px;
     }
-  
+
     #result h2 {
       font-size: 20px;
       font-family: Arial, Helvetica, sans-serif;
     }
-  
+
     #result p {
       font-size: 16px;
       font-family: Arial, Helvetica, sans-serif;
     }
-  
+
     footer {
       padding: 5px;
     }
   }
-  

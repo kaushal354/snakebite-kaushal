@@ -1,0 +1,87 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snake Bite Prediction System</title>
+    <link rel="stylesheet" href="{%static  'css/main.css'%}">
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">Snake Bite Prediction System</h1>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="home/hospregis">Hospital Registration</a></li>
+          <li><a href="home/me">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <h1>Hospital Registration Form</h1>
+
+      <div id="result">
+        <!-- Result section to be populated with prediction results -->
+            <img id="snake-image" style="  height: 100px;width: 100px;" src = "{%static 'hospRegis/hospital.jpg'%}">
+            <form action="home/hospital_from" method="post" style="display: flex; flex-direction: column; max-width: 500px; margin: auto;" enctype="multipart/form-data" >
+                <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="flex-basis: 200px;">Hospital name:</span>
+                  <input type="text" name="hospital_name">
+                </label>
+                <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="flex-basis: 200px;">City:</span>
+                  <input type="text" name="city">
+                </label>
+                <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="flex-basis: 200px;">Address of Hospital:</span>
+                  <input type="text" name="hospital_address">
+                </label>
+
+                <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="flex-basis: 200px;">PhoneNo of Hospital:</span>
+                  <input type="tel" name="phone_number">
+                </label>
+
+                <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="flex-basis: 200px;">Email:</span>
+                  <input type="email" name="email">
+                </label>
+
+                <fieldset style="margin-bottom: 10px;">
+                  <legend>Antitode availability:</legend>
+                  <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li>
+                      <label style="display: flex; align-items: center;">
+                        <input type="checkbox" name="antidote[]" value="cobra" style="margin-right: 10px;">
+                        Cobra
+                      </label>
+                    </li>
+                    <li>
+                      <label style="display: flex; align-items: center;">
+                        <input type="checkbox" name="antidote[]" value="russells_viper" style="margin-right: 10px;">
+                        Russell's Viper
+                      </label>
+                    </li>
+                    <li>
+                      <label style="display: flex; align-items: center;">
+                        <input type="checkbox" name="antidote[]" value="python" style="margin-right: 10px;">
+                        Python
+                      </label>
+                    </li>
+
+                  </ul>
+                </fieldset>
+
+                <input type="submit" value="Submit" style="margin-top: 20px; background-color: #252525; border-radius: 5px; height: fit-content; font-size: 25px; color: wheat; ">
+              </form>
+
+
+
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Snake Bite Prediction System</p>
+    </footer>
+
+  </body>
+</html>
